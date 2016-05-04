@@ -1,0 +1,58 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen, handheld" />
+  <link rel="stylesheet" type="text/css" href="enhanced.css" media="screen  and (min-width: 40.5em)" />
+  <!--[if (lt IE 9)&(!IEMobile)]>
+  <link rel="stylesheet" type="text/css" href="enhanced.css" />
+  <![endif]-->
+</head>
+<body>
+  <div class="title-bar" data-responsive-toggle="top-bar" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle>Menu</button>
+    <!-- <div class="title-bar-title">Menu</div> -->
+  </div>
+  <div class="top-bar" id="top-bar">
+    <div class="top-bar-left">
+      <ul class="dropdown vertical medium-horizontal menu">
+        <li><a href="#">Almacén</a></li>
+        <li><a href="#">Eventos</a></li>
+        <li><a href="#">Usuarios</a></li>
+      </ul>
+    </div>
+  </div>
+  <br />
+  <form>
+    <div class="row">
+      <div class="small-2 columns">
+        <label for="middle-label" class="text-right middle">Buscar:</label>
+      </div>
+      <div class="small-10 columns">
+        <input type="text" id="middle-label" placeholder="Right- and middle-aligned text input">
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns small-9">
+        <select id="category">
+          <option value="" disabled selected>Categorías</option>
+          <option value="mantel">Mantel</option>
+          <option value="funda">Funda</option>
+          <option value="silla">Silla</option>
+          <option value="loza">Loza</option>
+          <option value="servilleta">Servilleta</option>
+        </select>
+      </div>
+      <div class="columns small-3 align-right">
+        <a class="button float-right" href="#">+</a>
+      </div>
+    </div>
+  </form>
+  <hr>
+  <div class="row columns">
+    <div class="callout">
+      Tenedores de plata: 12
+    </div>
+    <div class="callout">
+      Tenedores de bronce: 22
+    </div>
+  </div>
+</body>
