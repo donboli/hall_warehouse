@@ -1,5 +1,5 @@
 import React from 'react';
-import ResourceForm from './ResourceForm.jsx';
+import ResourceSearchForm from './ResourceSearchForm.jsx';
 import ResourceList from './ResourceList.jsx';
 
 export default Warehouse = React.createClass({
@@ -9,7 +9,7 @@ export default Warehouse = React.createClass({
         <div className="row columns">
           <h1>Almacén</h1>
         </div>
-        <ResourceForm />
+        <ResourceSearchForm />
         <hr/>
         <ResourceList />
       </div>

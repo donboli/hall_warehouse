@@ -5,11 +5,28 @@ export default ResourceForm = React.createClass({
     return (
       <form>
         <div className="row">
+          <div className="small-3 columns">
+            <label for="description" className="text-right middle">Descripción:</label>
+          </div>
+          <div className="small-9 columns">
+            <input type="text" 
+                   id="description" 
+                   placeholder="Ingresar una descripción">
+            </input>
+          </div>
+        </div>
+        <div className="row">
           <div className="small-2 columns">
-            <label for="middle-label" className="text-right middle">Buscar:</label>
+            <label for="quantity" className="text-right middle">Cantidad:</label>
           </div>
           <div className="small-10 columns">
-            <input type="text" id="middle-label" placeholder="Right- and middle-aligned text input" />
+            <input type="number" 
+                   id="quantity" 
+                   name="points" 
+                   min="0" 
+                   max="100" 
+                   step="10">
+            </input>
           </div>
         </div>
         <div className="row">
@@ -24,7 +41,11 @@ export default ResourceForm = React.createClass({
             </select>
           </div>
           <div className="columns small-3 align-right">
-            <a className="button float-right" href="#">+</a>
+            <input type="submit" 
+                   className="button float-right" 
+                   href="#"
+                   value="Agregar">
+            </input>
           </div>
         </div>
       </form>
