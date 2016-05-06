@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ResourceSearchForm from './ResourceSearchForm.jsx';
 import ResourceList from './ResourceList.jsx';
 
-export default Warehouse = React.createClass({
+export default class Warehouse extends Component {
   render() {
     return (
       <div>
@@ -15,4 +15,4 @@ export default Warehouse = React.createClass({
       </div>
     );
   }
-});
+}

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default Users = React.createClass({
+export default class Users extends Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ export default Users = React.createClass({
       </div>
     );
   }
-});
+}

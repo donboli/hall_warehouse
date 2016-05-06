@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import EventsSearch from './EventsSearch.jsx';
 import EventsList from './EventsList.jsx';
 
-export default Events = React.createClass({
+export default class Events extends Component {
   render() {
     return (
       <div>
-        <div className="row">
+        <div className="row columns">
           <h1>Eventos</h1>
         </div>
         <EventsSearch />
@@ -15,4 +15,4 @@ export default Events = React.createClass({
       </div>
     );
   }
-});
+}

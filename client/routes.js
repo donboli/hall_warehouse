@@ -1,5 +1,5 @@
 import { mount } from 'react-mounter';
-import React from 'react';
+import React, { Component } from 'react';
 import MainLayout from '../imports/ui/MainLayout.jsx';
 import ResourceForm from '../imports/ui/ResourceForm.jsx';
 import Warehouse from '../imports/ui/Warehouse.jsx';

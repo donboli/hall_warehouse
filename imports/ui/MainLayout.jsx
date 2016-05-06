@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default MainLayout = React.createClass({
+export default class MainLayout extends Component {
   componentDidMount() {
     $(document).foundation();
-  },
+  }
 
   render() {
     return (
@@ -25,4 +25,4 @@ export default MainLayout = React.createClass({
       </div>
     );
   }
-});
+}

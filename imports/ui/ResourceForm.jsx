@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default ResourceForm = React.createClass({
+export default class ResourceForm extends Component {
   render() {
     return (
       <form>
@@ -51,4 +51,4 @@ export default ResourceForm = React.createClass({
       </form>
     );
   }
-});
+}

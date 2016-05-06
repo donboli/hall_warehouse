@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default ResourceList = React.createClass({
+export default class ResourceList extends Component {
   render() {
     return (
       <div className="row columns">
@@ -25,4 +25,4 @@ export default ResourceList = React.createClass({
       </div>
     );
   }
-});
+}
