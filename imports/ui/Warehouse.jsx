@@ -3,6 +3,10 @@ import ResourceSearchForm from './ResourceSearchForm.jsx';
 import ResourceList from './ResourceList.jsx';
 
 export default class Warehouse extends Component {
+  componentDidMount() {
+    $(document).foundation();
+  }
+  
   render() {
     return (
       <div>

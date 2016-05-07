@@ -3,6 +3,10 @@ import EventsSearch from './EventsSearch.jsx';
 import EventsList from './EventsList.jsx';
 
 export default class Events extends Component {
+  componentDidMount() {
+    $(document).foundation();
+  }
+  
   render() {
     return (
       <div>
