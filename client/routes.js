@@ -2,6 +2,7 @@ import { mount } from 'react-mounter';
 import React, { Component } from 'react';
 import MainLayout from '../imports/ui/MainLayout.jsx';
 import ResourceForm from '../imports/ui/ResourceForm.jsx';
+import EventForm from '../imports/ui/EventForm.jsx';
 import Warehouse from '../imports/ui/Warehouse.jsx';
 import Events from '../imports/ui/Events.jsx';
 import Users from '../imports/ui/Users.jsx';
@@ -13,24 +14,41 @@ FlowRouter.route('/', {
   }
 });
 
-FlowRouter.route('/warehouse', {
+// warehouse routes
+let warehouseRoutes = FlowRouter.group({
+  prefix: '/warehouse'
+});
+
+warehouseRoutes.route('/', {
   action() {
     mount(MainLayout, {content: <Warehouse />});
   }
 });
 
-FlowRouter.route('/warehouse/resource', {
+warehouseRoutes.route('/resource', {
   action() {
     mount(MainLayout, {content: <ResourceForm />});
   }
 });
 
-FlowRouter.route('/events', {
+// events routes
+let eventsRoutes = FlowRouter.group({
+  prefix: '/events'
+});
+
+eventsRoutes.route('/', {
   action() {
     mount(MainLayout, {content: <Events />});
   }
 });
 
+eventsRoutes.route('/event', {
+  action() {
+    mount(MainLayout, {content: <EventForm />});
+  }
+});
+
+// users routes
 FlowRouter.route('/users', {
   action() {
     mount(MainLayout, {content: <Users />});

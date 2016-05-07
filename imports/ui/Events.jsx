@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EventsSearch from './EventsSearch.jsx';
+import EventsSearchForm from './EventsSearchForm.jsx';
 import EventsList from './EventsList.jsx';
 
 export default class Events extends Component {
@@ -24,7 +24,7 @@ export default class Events extends Component {
         <div className="row columns">
           <h1>Eventos</h1>
         </div>
-        <EventsSearch />
+        <EventsSearchForm />
         <hr/>
         <EventsList events={this.getEvents()} />
       </div>
