@@ -9,7 +9,7 @@ export default class Event extends Component {
         <div className="accordion-content" data-tab-content>
           Fecha: {this.props.event.date.toDateString()}
           <br/>
-          Tipo: {Constants[this.props.event.type]}
+          Tipo: {Constants.event_types[this.props.event.type]}
         </div>
       </li>
     );
