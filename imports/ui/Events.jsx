@@ -15,12 +15,12 @@ export default class Events extends Component {
   }
 
   componentDidMount() {
-    $(document).foundation();
+    $(this.refs.events).foundation();
   }
 
   render() {
     return (
-      <div>
+      <div ref="events">
         <div className="row columns">
           <h1>Eventos</h1>
         </div>

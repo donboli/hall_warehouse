@@ -15,12 +15,12 @@ export default class Warehouse extends Component {
   }
 
   componentDidMount() {
-    $(document).foundation();
+    $(this.refs.warehouse).foundation();
   }
   
   render() {
     return (
-      <div>
+      <div ref="warehouse">
         <div className="row columns">
           <h1>Almacén</h1>
         </div>
