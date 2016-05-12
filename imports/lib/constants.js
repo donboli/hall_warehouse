@@ -12,7 +12,9 @@ const Constants = {
     2: 'Funda',
     3: 'Silla',
     4: 'Loza',
-    5: 'Servilleta'
+    5: 'Servilleta',
+    6: 'Plaqué',
+    5: 'Cristalería'
   }
 };
 

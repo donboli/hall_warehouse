@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Constants from '../lib/constants.js';
 
 export default class ResourceSearchForm extends Component {
   render() {
@@ -16,11 +17,9 @@ export default class ResourceSearchForm extends Component {
           <div className="columns small-9">
             <select id="category" defaultValue="placeholder" >
               <option value="placeholder" disabled>Categorías</option>
-              <option value="mantel">Mantel</option>
-              <option value="funda">Funda</option>
-              <option value="silla">Silla</option>
-              <option value="loza">Loza</option>
-              <option value="servilleta">Servilleta</option>
+              {Object.keys(Constants.event_types).map((value, index) => (
+                <option value={value}>{Constants.resource_categories[value]}</option>
+              ))}
             </select>
           </div>
           <div className="columns small-3 align-right">
