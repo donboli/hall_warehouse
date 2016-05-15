@@ -1,11 +1,9 @@
 import { configure } from '@kadira/storybook';
 
-function loadStories() {
-  var normalizedPath = require("path").join(__dirname, "routes");
+const req = require.context('../imports/ui/', true, /Story\.js$/);
 
-  require("fs").readdirSync(normalizedPath).forEach(function(file) {
-    require('../imports/ui/stories/' + file);
-  });
+function loadStories() {
+  req.keys().forEach(req);
 }
 
 configure(loadStories, module);

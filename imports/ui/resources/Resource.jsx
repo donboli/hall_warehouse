@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Constants from '../../lib/constants.js';
 
 export default class Event extends Component {
@@ -13,3 +13,7 @@ export default class Event extends Component {
     );
   }
 }
+
+Event.propTypes = {
+  resource: PropTypes.object.isRequired,
+};
