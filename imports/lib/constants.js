@@ -14,7 +14,8 @@ const Constants = {
     4: 'Loza',
     5: 'Servilleta',
     6: 'Plaqué',
-    5: 'Cristalería'
+    7: 'Cristalería',
+    8: 'Letras'
   }
 };
 

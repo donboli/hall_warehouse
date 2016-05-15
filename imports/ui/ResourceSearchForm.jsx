@@ -17,7 +17,7 @@ export default class ResourceSearchForm extends Component {
           <div className="columns small-9">
             <select id="category" defaultValue="placeholder" >
               <option value="placeholder" disabled>Categorías</option>
-              {Object.keys(Constants.event_types).map((value, index) => (
+              {Object.keys(Constants.resource_categories).map((value, index) => (
                 <option key={index} value={value}>{Constants.resource_categories[value]}</option>
               ))}
             </select>
