@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Constants from '../lib/constants.js';
+import Constants from '../../lib/constants.js';
 
 export default class Event extends Component {
   render() {

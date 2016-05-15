@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-import Constants from '../lib/constants.js';
+import Constants from '../../lib/constants.js';
 
 export default class EventForm extends Component {
   constructor(props, context) {

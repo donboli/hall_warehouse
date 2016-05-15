@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { composeWithTracker } from 'react-komposer';
 import React, { Component } from 'react';
 import Resources from '../api/resources.js';
-import Warehouse from '../ui/Warehouse.jsx';
+import Warehouse from '../ui/resources/Warehouse.jsx';
 
 function composer(props, onData) {
   if (Meteor.subscribe('resources').ready()) {

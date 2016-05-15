@@ -1,11 +1,11 @@
 import { mount } from 'react-mounter';
 import React, { Component } from 'react';
 import MainLayout from '../imports/ui/MainLayout.jsx';
-import ResourceForm from '../imports/ui/ResourceForm.jsx';
-import EventForm from '../imports/ui/EventForm.jsx';
+import ResourceForm from '../imports/ui/resources/ResourceForm.jsx';
+import EventForm from '../imports/ui/events/EventForm.jsx';
 import WarehouseContainer from '../imports/containers/WarehouseContainer.jsx';
-import Events from '../imports/ui/Events.jsx';
-import Users from '../imports/ui/Users.jsx';
+import Events from '../imports/ui/events/Events.jsx';
+import Users from '../imports/ui/users/Users.jsx';
 
 // redirect root to warehouse
 FlowRouter.route('/', {

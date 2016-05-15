@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Constants from '../lib/constants.js';
-import Resources from '../api/resources.js';
+import Constants from '../../lib/constants.js';
+import Resources from '../../api/resources.js';
 
 export default class ResourceForm extends Component {
   handleSubmit(event) {
