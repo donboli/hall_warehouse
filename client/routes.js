@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import MainLayout from '../imports/ui/MainLayout.jsx';
 import ResourceForm from '../imports/ui/resources/ResourceForm.jsx';
 import EventForm from '../imports/ui/events/EventForm.jsx';
-import WarehouseContainer from '../imports/containers/WarehouseContainer.jsx';
+import ResourcesContainer from '../imports/containers/ResourcesContainer.jsx';
 import EventsContainer from '../imports/containers/EventsContainer.jsx';
 import Users from '../imports/ui/users/Users.jsx';
 
@@ -21,7 +21,7 @@ let warehouseRoutes = FlowRouter.group({
 
 warehouseRoutes.route('/', {
   action() {
-    mount(MainLayout, {content: <WarehouseContainer />});
+    mount(MainLayout, {content: <ResourcesContainer />});
   }
 });
 

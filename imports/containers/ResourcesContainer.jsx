@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { composeWithTracker } from 'react-komposer';
 import React, { Component } from 'react';
 import Resources from '../api/resources.js';
-import Warehouse from '../ui/resources/Warehouse.jsx';
+import ResourcesView from '../ui/resources/ResourcesView.jsx';
 import LoadingMessage from '../ui/LoadingMessage.jsx';
 
 function composer(props, onData) {
@@ -13,4 +13,4 @@ function composer(props, onData) {
   };
 };
 
-export default composeWithTracker(composer, LoadingMessage)(Warehouse);
+export default composeWithTracker(composer, LoadingMessage)(ResourcesView);

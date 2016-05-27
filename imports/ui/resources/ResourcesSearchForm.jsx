@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Constants from '../../lib/constants.js';
 
-export default class ResourceSearchForm extends Component {
+export default class ResourcesSearchForm extends Component {
   render() {
     return (
       <form>

@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
-import ResourceSearchForm from './ResourceSearchForm.jsx';
-import ResourceList from './ResourceList.jsx';
+import ResourcesSearchForm from './ResourcesSearchForm.jsx';
+import ResourcesList from './ResourcesList.jsx';
 
-export default class Warehouse extends Component {
+export default class ResourcesView extends Component {
   componentDidMount() {
     $(this.refs.warehouse).foundation();
   }
@@ -13,14 +13,14 @@ export default class Warehouse extends Component {
         <div className="row columns">
           <h1>Almacén</h1>
         </div>
-        <ResourceSearchForm />
+        <ResourcesSearchForm />
         <hr/>
-        <ResourceList resources={this.props.resources} />
+        <ResourcesList resources={this.props.resources} />
       </div>
     );
   }
 }
 
-Warehouse.propTypes = {
+ResourcesView.propTypes = {
   resources: PropTypes.array.isRequired,
 };
