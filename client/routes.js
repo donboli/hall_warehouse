@@ -4,7 +4,7 @@ import MainLayout from '../imports/ui/MainLayout.jsx';
 import ResourceForm from '../imports/ui/resources/ResourceForm.jsx';
 import EventForm from '../imports/ui/events/EventForm.jsx';
 import WarehouseContainer from '../imports/containers/WarehouseContainer.jsx';
-import Events from '../imports/ui/events/Events.jsx';
+import EventsContainer from '../imports/containers/EventsContainer.jsx';
 import Users from '../imports/ui/users/Users.jsx';
 
 // redirect root to warehouse
@@ -38,7 +38,7 @@ let eventsRoutes = FlowRouter.group({
 
 eventsRoutes.route('/', {
   action() {
-    mount(MainLayout, {content: <Events />});
+    mount(MainLayout, {content: <EventsContainer />});
   }
 });
 

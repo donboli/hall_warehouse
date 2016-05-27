@@ -24,5 +24,4 @@ Schemas.Resource = new SimpleSchema({
 const Resources = new Mongo.Collection('resources');
 Resources.attachSchema(Schemas.Resource);
 
-
 export default Resources;

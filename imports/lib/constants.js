@@ -16,6 +16,14 @@ const Constants = {
     6: 'Plaqué',
     7: 'Cristalería',
     8: 'Letras'
+  },
+  halls: {
+    1: 'Segatori',
+    2: 'Ródano',
+    3: 'Ettén',
+    4: 'Írises',
+    5: 'Quinta',
+    6: 'Foráneo'
   }
 };
 

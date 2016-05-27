@@ -58,7 +58,7 @@ export default class EventForm extends Component {
                 <select id="type" defaultValue="placeholder">
                   <option value="placeholder" disabled>Tipos</option>
                   {Object.keys(Constants.event_types).map((value, index) => (
-                    <option value={value}>{Constants.event_types[value]}</option>
+                    <option value={value} key={index}>{Constants.event_types[value]}</option>
                   ))}
                 </select>
               </div>
