@@ -5,18 +5,27 @@ import Constants from '../../lib/constants.js';
 export default class ResourcesSearchForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {searchValue: Session.get("searchValue") || ""};
+    this.state = {
+      descriptionSearchValue: Session.get("descriptionSearchValue") || "",
+      categorySearchValue: Session.get("categorySearchValue") || "placeholder"
+    };
   }
 
   setSearchValue(event) {
     event.preventDefault();
-    let text = this.refs.searchField.value;
-    this.setState({searchValue: text});
-    Session.set("searchValue", text);
+    
+    let description = this.refs.descriptionField.value;
+    let category = this.refs.categoryField.value;
+    
+    this.setState({descriptionSearchValue: description});
+    this.setState({categorySearchValue: category});
+
+    Session.set("descriptionSearchValue", description);
+    Session.set("categorySearchValue", category);
   }
 
   componentDidMount() {
-    this.refs.searchField.focus();
+    this.refs.descriptionField.focus();
   }
 
   render() {
@@ -31,14 +40,17 @@ export default class ResourcesSearchForm extends Component {
               type="text" 
               id="middle-label" 
               placeholder="Buscar Recurso"
-              ref="searchField"
-              value={this.state.searchValue}
+              ref="descriptionField"
+              value={this.state.descriptionSearchValue}
             />
           </div>
         </div>
         <div className="row">
           <div className="columns small-9">
-            <select id="category" defaultValue="placeholder" >
+            <select onChange={this.setSearchValue.bind(this)}
+              id="category" 
+              ref="categoryField"
+              value={this.state.categorySearchValue}>
               <option value="placeholder" disabled>Categorías</option>
               {Object.keys(Constants.resource_categories).map((value, index) => (
                 <option key={index} value={value}>{Constants.resource_categories[value]}</option>

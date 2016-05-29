@@ -4,12 +4,18 @@ import Events from './events.js';
 
 Meteor.publish('resources', (query) => {
   if (query) {
-    return Resources.find(
-      { "description": {
-          $regex: ".*" + query + ".*"
-        }
-      }
-    );
+    let searchParams = {};
+
+    if (query.category != undefined) {
+      searchParams.description = { $regex: ".*" + query.description + ".*" }
+    }
+
+    if (query.category != undefined) {
+      searchParams.category = parseInt(query.category)
+    }
+    console.log(searchParams);
+
+    return Resources.find(searchParams);
   } else {
     return Resources.find();
   }
