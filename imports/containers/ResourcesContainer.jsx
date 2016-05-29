@@ -13,7 +13,7 @@ function composer(props, onData) {
     }).ready()) {
     onData(new Error('Error en la carga de datos'));
     let resources;
-    resources = Resources.find({}, { sort: [["description", "asc"]] });
+    resources = Resources.find({}, { sort: [["description", "asc"]] }).fetch();
     onData(null, {resources});
   };
 };
