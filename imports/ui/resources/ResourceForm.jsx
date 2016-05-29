@@ -40,7 +40,9 @@ export default class ResourceForm extends Component {
           <div className="callout">
             <div className="row">
               <div className="small-3 columns">
-                <label for="description" className="text-right middle">Descripción:</label>
+                <label for="description" className="text-right middle">
+                  Descripción:
+                </label>
               </div>
               <div className="small-9 columns">
                 <input type="text" 
@@ -81,11 +83,18 @@ export default class ResourceForm extends Component {
                 </select>
               </div>
             </div>
-            <div className="row columns">
-              <input type="submit" 
-                     className="button" 
-                     value="Agregar">
-              </input>
+            <div className="row">
+              <div className="columns small-6">
+                <a className="button" href="javascript:history.back()">
+                  Volver
+                </a>
+              </div>
+              <div className="columns small-6">
+                <input type="submit" 
+                       className="button success float-right"
+                       value="Agregar">
+                </input>
+              </div>
             </div>
           </div>
         </div>
