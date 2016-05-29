@@ -10,7 +10,7 @@ Meteor.publish('resources', (query) => {
       searchParams.description = { $regex: ".*" + query.description + ".*" }
     }
 
-    if (query.category != undefined) {
+    if (!(query.category == undefined || isNaN(query.category))) {
       searchParams.category = parseInt(query.category)
     }
     console.log(searchParams);

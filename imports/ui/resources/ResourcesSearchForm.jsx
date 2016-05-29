@@ -51,7 +51,7 @@ export default class ResourcesSearchForm extends Component {
               id="category" 
               ref="categoryField"
               value={this.state.categorySearchValue}>
-              <option value="placeholder" disabled>Categorías</option>
+              <option value="placeholder">Categorías</option>
               {Object.keys(Constants.resource_categories).map((value, index) => (
                 <option key={index} value={value}>{Constants.resource_categories[value]}</option>
               ))}
