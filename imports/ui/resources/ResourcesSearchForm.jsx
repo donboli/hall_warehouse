@@ -1,16 +1,39 @@
+import { Session } from 'meteor/session';
 import React, { Component } from 'react';
 import Constants from '../../lib/constants.js';
 
 export default class ResourcesSearchForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {searchValue: Session.get("searchValue") || ""};
+  }
+
+  setSearchValue(event) {
+    event.preventDefault();
+    let text = this.refs.searchField.value;
+    this.setState({searchValue: text});
+    Session.set("searchValue", text);
+  }
+
+  componentDidMount() {
+    this.refs.searchField.focus();
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.setSearchValue.bind(this)}>
         <div className="row">
           <div className="small-2 columns">
             <label for="middle-label" className="text-right middle">Buscar:</label>
           </div>
           <div className="small-10 columns">
-            <input type="text" id="middle-label" placeholder="Buscar Recurso" />
+            <input onChange={this.setSearchValue.bind(this)}
+              type="text" 
+              id="middle-label" 
+              placeholder="Buscar Recurso"
+              ref="searchField"
+              value={this.state.searchValue}
+            />
           </div>
         </div>
         <div className="row">

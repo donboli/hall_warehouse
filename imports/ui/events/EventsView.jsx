@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import EventsSearchForm from './EventsSearchForm.jsx';
 import EventsList from './EventsList.jsx';
 
@@ -20,3 +20,7 @@ export default class EventsView extends Component {
     );
   }
 }
+
+EventsView.propTypes = {
+  events: PropTypes.array.isRequired,
+};

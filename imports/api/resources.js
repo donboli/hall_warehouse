@@ -7,7 +7,8 @@ Schemas.Resource = new SimpleSchema({
   description: {
     type: String,
     label: "Descripción",
-    max: 200
+    max: 200,
+    index: "text"
   },
   quantity: {
     type: Number,

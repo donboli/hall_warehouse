@@ -22,5 +22,5 @@ export default class ResourcesView extends Component {
 }
 
 ResourcesView.propTypes = {
-  resources: PropTypes.array.isRequired,
+  resources: PropTypes.object.isRequired,
 };
