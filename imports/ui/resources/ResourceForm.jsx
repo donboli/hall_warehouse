@@ -3,6 +3,20 @@ import Constants from '../../lib/constants.js';
 import Resources from '../../api/resources.js';
 
 export default class ResourceForm extends Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      category: "placeholder"
+    };
+  }
+
+  handleCategoryChange(){
+    this.setState({
+      category: this.refs.category.value
+    });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
  
@@ -73,7 +87,8 @@ export default class ResourceForm extends Component {
               <div className="small-9 columns">
                 <select id="category"
                         ref="category"
-                        defaultValue="placeholder">
+                        value={this.state.category}
+                        onChange={this.handleCategoryChange.bind(this)}>
                   <option value="placeholder" disabled>Categorías</option>
                   {Object.keys(Constants.resource_categories).map((value, index) => (
                     <option key={index} value={value}>

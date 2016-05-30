@@ -13,7 +13,6 @@ Meteor.publish('resources', (query) => {
     if (!(query.category == undefined || isNaN(query.category))) {
       searchParams.category = parseInt(query.category)
     }
-    console.log(searchParams);
 
     return Resources.find(searchParams);
   } else {
