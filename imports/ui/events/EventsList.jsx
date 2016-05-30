@@ -4,7 +4,7 @@ import Event from './Event.jsx';
 export default class EventsList extends Component {
   render() {
     var result;
-    if(this.props.events == undefined){
+    if(this.props.events == undefined || this.props.events.length == 0){
       result = <div>No hay eventos para estas fechas</div>;
     } else {
       result = <ul className="accordion" data-accordion data-allow-all-closed="true">
