@@ -20,6 +20,15 @@ Meteor.publish('resources', (query) => {
   }
 });
 
-Meteor.publish('events', () => {
-  return Events.find({});
+Meteor.publish('events', (query) => {
+  if (query && query.dateFilter) {
+    return Events.find({
+      date: {
+        $gte: new Date(query.startDate), 
+        $lte: new Date(query.endDate)
+      }
+    });
+  } else {
+    return Events.find({});
+  }
 });
