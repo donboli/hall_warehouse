@@ -1,3 +1,4 @@
+import { Session } from 'meteor/session';
 import { mount } from 'react-mounter';
 import React, { Component } from 'react';
 import MainLayout from '../imports/ui/MainLayout.jsx';
@@ -6,6 +7,12 @@ import EventForm from '../imports/ui/events/EventForm.jsx';
 import ResourcesContainer from '../imports/containers/ResourcesContainer.jsx';
 import EventsContainer from '../imports/containers/EventsContainer.jsx';
 import Users from '../imports/ui/users/Users.jsx';
+
+// clear searchValue session on route enter
+function clearSearchValue() {
+  Session.set("searchValues", null);
+}
+FlowRouter.triggers.enter(clearSearchValue);
 
 // redirect root to warehouse
 FlowRouter.route('/', {
