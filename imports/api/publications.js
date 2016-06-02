@@ -5,15 +5,19 @@ import Events from './events.js';
 Meteor.publish('resources', (query) => {
   if (query) {
     let searchParams = {};
+    
+    if (query.dateFilter) {
+      searchParams.date = query.date;
+    }
 
     if (query.category != undefined) {
       searchParams.description = { $regex: ".*" + query.description + ".*" }
     }
-
+    
     if (!(query.category == undefined || isNaN(query.category))) {
       searchParams.category = parseInt(query.category)
     }
-
+    
     return Resources.find(searchParams);
   } else {
     return Resources.find();

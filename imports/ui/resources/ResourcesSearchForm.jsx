@@ -9,57 +9,90 @@ import 'react-datepicker/dist/react-datepicker.css';
 export default class ResourcesSearchForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      descriptionSearchValue: Session.get("descriptionSearchValue") || "",
-      categorySearchValue: Session.get("categorySearchValue") || "placeholder",
-      date: moment(),
-      dateSwitch: false
-    };
+
+    let searchValues = Session.get("searchValues");
+    if(searchValues == undefined) {
+      searchValues = {
+        description: "",
+        category: "placeholder",
+        date: moment(),
+        dateFilter: false
+      };
+    } else {
+      searchValues = {
+        description: searchValues.description,
+        category: searchValues.category,
+        date: moment(searchValues.date, 'L'),
+        dateFilter: searchValues.dateFilter
+      };
+    }
+
+    this.state = searchValues;
+  }
+
+  handleDescriptionChange(event) {
+    event.preventDefault();
+
+    this.setState({
+      description: event.target.value
+    }, this.setSearchValues.bind(this));
+  }
+
+  handleCategoryChange(event) {
+    event.preventDefault();
+
+    this.setState({
+      category: event.target.value
+    }, this.setSearchValues.bind(this));
   }
 
   handleDateChange(date) {
     this.setState({
       date: date
-    });
+    }, this.setSearchValues.bind(this));
   }
 
-  handleDateSwitchChange() {
+  handleDateFilterChange() {
     this.setState({
-      dateSwitch: !this.state.dateSwitch
-    });
+      dateFilter: !this.state.dateFilter
+    }, (function() {
+      // set timeout to prevent breaking switch animation
+      setTimeout(this.setSearchValues.bind(this), 250);
+    }).bind(this));
   }
 
-  setSearchValue(event) {
-    event.preventDefault();
+  setSearchValues() {
+    let description = this.state.description;
+    let category = this.state.category;
+    let date = this.state.date;
+    let dateFilter = this.state.dateFilter;
     
-    let description = this.refs.descriptionField.value;
-    let category = this.refs.categoryField.value;
-    
-    this.setState({descriptionSearchValue: description});
-    this.setState({categorySearchValue: category});
-
-    Session.set("descriptionSearchValue", description);
-    Session.set("categorySearchValue", category);
+    Session.set("searchValues", {
+      description: description,
+      category: category,
+      date: date.format('L'),
+      dateFilter: dateFilter
+    });
   }
 
   componentDidMount() {
-    this.refs.descriptionField.focus();
+    this.refs.description.focus();
   }
 
   render() {
     return (
-      <form onSubmit={this.setSearchValue.bind(this)}>
+      <form>
         <div className="row">
           <div className="small-2 columns">
             <label for="middle-label" className="text-right middle">Buscar:</label>
           </div>
           <div className="small-10 columns">
-            <input onChange={this.setSearchValue.bind(this)}
+            <input onChange={this.handleDescriptionChange.bind(this)}
               type="text" 
               id="middle-label" 
               placeholder="Buscar Recurso"
-              ref="descriptionField"
-              value={this.state.descriptionSearchValue}
+              ref="description"
+              value={this.state.description}
             />
           </div>
         </div>
@@ -77,9 +110,10 @@ export default class ResourcesSearchForm extends Component {
                 id="yes-no" 
                 type="checkbox" 
                 name="exampleSwitch" 
-                checked={this.state.dateSwitch}
+                checked={this.state.dateFilter}
+                readOnly="true"
               />
-              <label className="switch-paddle" for="yes-no" onClick={this.handleDateSwitchChange.bind(this)}>
+              <label className="switch-paddle" for="yes-no" onClick={this.handleDateFilterChange.bind(this)}>
                 <span className="switch-active" aria-hidden="true">Si</span>
                 <span className="switch-inactive" aria-hidden="true">No</span>
               </label>
@@ -88,10 +122,10 @@ export default class ResourcesSearchForm extends Component {
         </div>
         <div className="row">
           <div className="columns small-9">
-            <select onChange={this.setSearchValue.bind(this)}
+            <select onChange={this.handleCategoryChange.bind(this)}
               id="category" 
-              ref="categoryField"
-              value={this.state.categorySearchValue}>
+              ref="category"
+              value={this.state.category}>
               <option value="placeholder">Categorías</option>
               {Object.keys(Constants.resource_categories).map((value, index) => (
                 <option key={index} value={value}>{Constants.resource_categories[value]}</option>

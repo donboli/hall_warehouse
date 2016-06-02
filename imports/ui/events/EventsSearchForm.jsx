@@ -41,7 +41,8 @@ export default class EventsSearchForm extends Component {
     this.setState({
       dateFilter: !this.state.dateFilter
     }, (function() {
-      setTimeout(this.setSearchValues.bind(this), 200);
+      // set timeout to prevent breaking switch animation
+      setTimeout(this.setSearchValues.bind(this), 250);
     }).bind(this));
   }
 

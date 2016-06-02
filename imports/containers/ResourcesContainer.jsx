@@ -7,10 +7,7 @@ import ResourcesView from '../ui/resources/ResourcesView.jsx';
 import LoadingMessage from '../ui/LoadingMessage.jsx';
 
 function composer(props, onData) {
-  if (Meteor.subscribe('resources', {
-      description: Session.get("descriptionSearchValue"),
-      category: Session.get("categorySearchValue")
-    }).ready()) {
+  if (Meteor.subscribe('resources', Session.get("searchValues")).ready()) {
     onData(new Error('Error en la carga de datos'));
     let resources;
     resources = Resources.find({}, { sort: [["description", "asc"]] }).fetch();
