@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Event from './Event.jsx';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class EventsList extends Component {
   render() {
@@ -15,7 +16,14 @@ export default class EventsList extends Component {
     }
     return (
       <div className="row columns">
-        {result}
+        <ReactCSSTransitionGroup 
+          transitionName="example"
+          transitionLeaveTimeout={300}
+          transitionEnterTimeout={300}
+          transitionAppear={true}
+          transitionAppearTimeout={500}>
+          {result}
+        </ReactCSSTransitionGroup>
       </div>
     );
   }
