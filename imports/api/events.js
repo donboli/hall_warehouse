@@ -3,6 +3,17 @@ import Constants from '../lib/constants.js';
  
 var Schemas = {};
 
+// sub-schema to register the quantity of every resource used for an event
+EventResource = new SimpleSchema({
+  referencedResource: {
+    type: String
+  },
+  quantity: {
+    type: Number,
+    label: "Cantidad utilizada"
+  }
+});
+
 Schemas.Event = new SimpleSchema({
   hall: {
     type: Number,
@@ -19,6 +30,10 @@ Schemas.Event = new SimpleSchema({
     label: "Tipo",
     allowedValues: Object.keys(Constants.event_types)
                          .map((key) => { return parseInt(key); }),
+  },
+  resources: {
+    type: [EventResource],
+    minCount: 1
   }
 });
 

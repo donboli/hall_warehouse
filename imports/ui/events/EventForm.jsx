@@ -4,6 +4,7 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import Constants from '../../lib/constants.js';
 import Events from '../../api/events.js';
+import EventResourcesList from './EventResourcesList.jsx';
 
 export default class EventForm extends Component {
   constructor(props, context) {
@@ -12,7 +13,11 @@ export default class EventForm extends Component {
     this.state = {
       date: moment(),
       hall: "placeholder",
-      type: "placeholder"
+      type: "placeholder",
+      eventResources: [
+        {_id: "34H7T8HH7443", description: "servilletas", quantity: 34, category: 3},
+        {_id: "34H7T8HH7443", description: "platos", quantity: 120, category: 2}
+      ]
     };
   }
 
@@ -32,6 +37,16 @@ export default class EventForm extends Component {
     this.setState({
       type: this.refs.type.value
     });
+  }
+
+  addResource() {
+    let eventResources = this.state.eventResources;
+
+    eventResources.push({description: 'lalala', quantity: 30, category: 2});
+
+    this.setState({
+      eventResources: eventResources
+    })
   }
 
   handleSubmit(event) {
@@ -71,10 +86,11 @@ export default class EventForm extends Component {
           <div className="callout">
             <div className="row">
               <div className="small-2 columns">
-                <label for="hall" className="text-right middle">Salón:</label>
+                <label htmlFor="hall" className="text-right middle">Salón:</label>
               </div>
               <div className="small-10 columns">
                 <select 
+                  id="hall"
                   ref="hall"
                   value={this.state.hall}
                   onChange={this.handleHallChange.bind(this)}>
@@ -87,7 +103,7 @@ export default class EventForm extends Component {
             </div>
             <div className="row">
               <div className="small-2 columns">
-                <label for="datepicker" className="text-right middle">Fecha:</label>
+                <label htmlFor="datepicker" className="text-right middle">Fecha:</label>
               </div>
               <div className="small-10 columns">
                 <DatePicker 
@@ -99,10 +115,11 @@ export default class EventForm extends Component {
             </div>
             <div className="row">
               <div className="small-2 columns">
-                <label for="type" className="text-right middle">Tipo:</label>
+                <label htmlFor="type" className="text-right middle">Tipo:</label>
               </div>
               <div className="small-10 columns">
                 <select 
+                  id="type"
                   ref="type"
                   value={this.state.type}
                   onChange={this.handleTypeChange.bind(this)}>
@@ -117,6 +134,15 @@ export default class EventForm extends Component {
                 </select>
               </div>
             </div>
+            <div className="clearfix">
+              <h3 className="float-left">Recursos</h3>
+              <a className="tiny button left-margin-5" onClick={this.addResource.bind(this)}>
+                +
+              </a>
+            </div>
+
+            <EventResourcesList eventResources={this.state.eventResources} />
+
             <div className="row">
               <div className="columns small-6">
                 <a className="button" href="javascript:history.back()">

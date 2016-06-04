@@ -54,7 +54,7 @@ export default class ResourceForm extends Component {
           <div className="callout">
             <div className="row">
               <div className="small-3 columns">
-                <label for="description" className="text-right middle">
+                <label htmlFor="description" className="text-right middle">
                   Descripción:
                 </label>
               </div>
@@ -68,7 +68,7 @@ export default class ResourceForm extends Component {
             </div>
             <div className="row">
               <div className="small-3 columns">
-                <label for="quantity" className="text-right middle">Cantidad:</label>
+                <label htmlFor="quantity" className="text-right middle">Cantidad:</label>
               </div>
               <div className="small-9 columns">
                 <input type="number" 
@@ -82,7 +82,7 @@ export default class ResourceForm extends Component {
             </div>
             <div className="row">
               <div className="small-3 columns">
-                <label for="category" className="text-right middle">Categoría:</label>
+                <label htmlFor="category" className="text-right middle">Categoría:</label>
               </div>
               <div className="small-9 columns">
                 <select id="category"
